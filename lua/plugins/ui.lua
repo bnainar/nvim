@@ -8,7 +8,9 @@ return {
         cond = not vim.g.vscode,
         config = function()
             vim.notify = require("notify")
-            require("notify")("Hello World")
+            require("notify").setup({
+                background_color = "#161616"
+            })
         end
     },
 }
