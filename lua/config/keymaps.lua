@@ -5,8 +5,3 @@ vim.keymap.set({ 'i', 'v' }, 'kj', '<Esc>');
 
 -- Ctrl-S to :w
 vim.keymap.set({ 'i', 'v', 'n' }, '<C-s>', '<cmd>w<CR>');
-
-if vim.g.vscode then
-    vim.keymap.set({ 'x', 'n', 'o' }, 'gc', '<Plug>VSCodeCommentary');
-    vim.keymap.set('n', 'gcc', '<Plug>VSCodeCommentaryLine');
-end

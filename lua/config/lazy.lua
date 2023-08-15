@@ -10,7 +10,9 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+
+-- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "
 
 require("lazy").setup({
     {
@@ -30,11 +32,24 @@ require("lazy").setup({
             vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
         end,
     },
-
-    "tpope/vim-repeat",
     "tpope/vim-commentary",
-    "vim-airline/vim-airline"
+    "tpope/vim-repeat",
+    {
+
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require('lualine').setup({
+                options = {
+                    theme = 'iceberg_dark'
+                }
+            })
+        end,
+        cond = not vim.g.vscode
+    }
 
     -- disable flash.nvim until https://github.com/vscode-neovim/vscode-neovim/issues/1349 is fixed
 })
-vim.o.background = "dark" -- or "light" for light mode
+vim.opt.mouse = "a"           -- Enable mouse mode
+vim.opt.number = true         -- Print line number
+vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.background = "dark"
