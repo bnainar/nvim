@@ -19,7 +19,6 @@ return {
         config = function()
             require('Comment').setup()
         end
-    }
-
+    },
     -- disable flash.nvim until https://github.com/vscode-neovim/vscode-neovim/issues/1349 is fixed
 }
